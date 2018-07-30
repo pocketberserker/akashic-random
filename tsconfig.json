@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es2017"
+    ],
+    "noLib": false,
+    "strict": true,
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "./lib"
+  },
+  "files": [
+    "./node_modules/@akashic/akashic-engine/lib/main.d.ts",
+    "./src/index.ts"
+  ]
+}
