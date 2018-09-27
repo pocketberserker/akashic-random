@@ -2,8 +2,8 @@ import {Random} from "./Random";
 
 const sum = (arr: number[]) => {
   return arr.reduce((prev, current, i) => {
-    if (current <= 0) {
-      throw new Error(`Invalid weight ${current} at array[${i}]. Weight must be greater than 0.`);
+    if (current < 0) {
+      throw new Error(`Invalid weight ${current} at array[${i}]. Weight must be greater than or equal to 0.`);
     }
     return prev + current;
   }, 0);
@@ -31,7 +31,7 @@ export class AliasMethod {
     }
 
     const probabilities = weights.map(x => (x * length) / total);
-  
+
     const small: number[] = [];
     const large: number[] = [];
     for (let i = 0; i < length; i++) {
@@ -42,7 +42,7 @@ export class AliasMethod {
         large.push(i);
       }
     }
-  
+
     const alias = Array(length).fill(-1);
     while (small.length && large.length) {
       const j = small.pop() as number;
@@ -54,7 +54,7 @@ export class AliasMethod {
         large.pop();
       }
     }
-  
+
     return {
       length,
       probabilities,
